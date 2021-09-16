@@ -1,0 +1,36 @@
+@startuml package-by-component
+
+title Package By Component
+
+!include https://raw.githubusercontent.com/bionic-hillbilly/plantuml-themes/master/themes/light-theme.puml
+
+package Betclic.Payment.Deposits.Web {
+    rectangle DepositsController
+    rectangle DepositEligibilityController
+}
+
+package Betclic.Payment.Deposits {
+    rectangle IDepositsService <<interface>>
+    rectangle DepositsService
+    rectangle IDepositsRepository <<interface>>
+    rectangle DepositsRepository
+}
+
+package Betclic.Payment.DepositEligibility {
+    rectangle IDepositEligibilityService <<interface>>
+    rectangle DepositEligibilityService
+    rectangle IDepositEligibilityRepository <<interface>>
+    rectangle DepositEligibilityRepository
+}
+
+DepositsController --> IDepositsService : uses
+IDepositsService <|-- DepositsService : implements
+DepositsService --> IDepositsRepository : uses
+IDepositsRepository <|-- DepositsRepository : impelements
+
+DepositEligibilityController --> IDepositEligibilityService : uses
+IDepositEligibilityService <|-- DepositEligibilityService : implements
+DepositEligibilityService --> IDepositEligibilityRepository : uses
+IDepositEligibilityRepository <|-- DepositEligibilityRepository : impelements
+
+@enduml
