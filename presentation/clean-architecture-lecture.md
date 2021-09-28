@@ -79,7 +79,7 @@ written by **Robert C. Martin** aka **Uncle Bob**
 
 ---
 
-### 📦 Package by component
+# 📦 Package by component
 
 ![height:500px](../images/package-by-component.png)
 
